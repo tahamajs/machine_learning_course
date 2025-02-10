@@ -1,4 +1,3 @@
-*
 
 # Machine Learning Course - Assignments & Final Project
 
