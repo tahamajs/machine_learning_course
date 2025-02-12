@@ -11,9 +11,6 @@ This repository contains a series of assignments and a final project for the **M
 4. [HW4: Decision Trees &amp; Clustering](#4-hw4-decision-trees--clustering)
 5. [HW5: Deep Learning &amp; Neural Networks](#5-hw5-deep-learning--neural-networks)
 6. [Final Project: Speaker Gender Classification &amp; Voice Authentication](#6-final-project-speaker-gender-classification--voice-authentication)
-7. [Installation &amp; Setup](#installation--setup)
-8. [How to Run](#how-to-run)
-9. [Authors](#authors)
 
 ---
 
