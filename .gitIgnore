@@ -3,3 +3,13 @@
 /Extra/HO1-20241027/PML_HO1.mp4
 /Extra/HO1-20241027/PML_HO1.mp4 
 /Extra/HO1-20241027/PML_HO1.mp4
+
+# Embedded repos ignored
+CAs/CA1/
+CAs/CA2/
+CAs/CA3/
+CAs/CA4/
+CAs/CA5/
+CAs/Project/
+Machine-Learning-Course-Homeworks-S2024/
+machine_learning_2023/
