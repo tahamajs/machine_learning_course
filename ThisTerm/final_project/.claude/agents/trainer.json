@@ -1,0 +1,13 @@
+{
+  "name": "trainer",
+  "purpose": "Run training tasks in sandbox; log to MLflow with provided credentials",
+  "tools": ["Read", "Bash", "Write"],
+  "permissions": {
+    "network": true,
+    "cloud_write": false,
+    "requires_approval": ["upload_artifacts", "access_production_resources"]
+  },
+  "prompt": "Execute training pipelines under resource constraints, report progress, and require approval for long runs or cloud uploads."
+}
+
+

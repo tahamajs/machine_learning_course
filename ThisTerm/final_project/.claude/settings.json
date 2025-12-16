@@ -1,0 +1,49 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if [[ \"$CLAUDE_TOOL_INPUT\" =~ (rm\\s+-rf|git\\s+push\\s+--force|DROP\\s+TABLE) ]]; then echo 'BLOCKED: Destructive command detected' >&2 && exit 2; fi"
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo \"Editing files: $CLAUDE_FILE_PATHS\""
+          },
+          {
+            "type": "command",
+            "command": "if printf '%s' \"$CLAUDE_FILE_PATHS\" | rg -q '\\.(env|pem|key|json)$'; then echo 'WARNING: Attempting to edit potential secret files' >&2; fi"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if printf '%s' \"$CLAUDE_FILE_PATHS\" | rg -q '\\.py$'; then black $CLAUDE_FILE_PATHS || true; isort $CLAUDE_FILE_PATHS || true; ruff check $CLAUDE_FILE_PATHS || true; fi"
+          },
+          {
+            "type": "command",
+            "command": "if printf '%s' \"$CLAUDE_FILE_PATHS\" | rg -q '\\.ipynb$'; then jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace $CLAUDE_FILE_PATHS || true; fi"
+          },
+          {
+            "type": "command",
+            "command": "if printf '%s' \"$CLAUDE_FILE_PATHS\" | rg -q 'tests/.*\\.py$|test_.*\\.py$'; then pytest -q --maxfail=1 || true; fi"
+          }
+        ]
+      }
+    ]
+  }
+}
+
+

@@ -1,0 +1,12 @@
+{
+  "name": "tester",
+  "purpose": "Run pytest, collect results, produce summary",
+  "tools": ["Read", "Bash"],
+  "permissions": {
+    "network": false,
+    "write": false
+  },
+  "prompt": "Run project tests (fast mode). Only read code and run pytest with small fixtures."
+}
+
+

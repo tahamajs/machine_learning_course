@@ -1,0 +1,14 @@
+numpy>=1.24
+scipy>=1.10
+pandas>=1.5
+scikit-learn>=1.2
+librosa>=0.9
+soundfile>=0.12
+matplotlib>=3.6
+joblib>=1.2
+tensorflow>=2.12; python_version >= "3.8"
+jupyter
+mlflow>=2.4
+
+
+
